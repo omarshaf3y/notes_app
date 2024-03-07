@@ -1,12 +1,12 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/widgets/custom_appbar.dart';
 
 import 'package:notes_app/views/widgets/custom_textfield.dart';
+import 'package:notes_app/views/widgets/edit_note_colors_list.dart';
 
 class EditNoteViewBody extends StatefulWidget {
   const EditNoteViewBody({super.key, required this.note});
@@ -26,7 +26,7 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             CustomAppBar(
@@ -40,7 +40,7 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
               title: 'Edit Note',
               icon: Icons.check,
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             CustomTextField(
@@ -49,7 +49,7 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
               },
               hint: widget.note.title,
             ),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
             CustomTextField(
@@ -59,8 +59,11 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
               hint: widget.note.subTitle,
               maxLines: 5,
             ),
-            SizedBox(
-              height: 50,
+            const SizedBox(
+              height: 16,
+            ),
+            EditNoteColorsList(
+              note: widget.note,
             ),
           ],
         ),
